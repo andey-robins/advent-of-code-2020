@@ -15,7 +15,7 @@ func check(e error) {
 func main() {
 	// select part one or two
 	partOne := true
-	if os.Args[1] == "2" {
+	if len(os.Args) == 2 && os.Args[1] == "2" {
 		partOne = false
 	}
 
