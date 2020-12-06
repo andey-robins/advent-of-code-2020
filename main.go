@@ -2,6 +2,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 )
@@ -17,6 +18,18 @@ func main() {
 	partOne := true
 	if len(os.Args) == 2 && os.Args[1] == "2" {
 		partOne = false
+	}
+
+	f, err := os.Open("./filename")
+	check(err)
+	defer func() {
+		err := f.Close()
+		check(err)
+	}()
+
+	s := bufio.NewScanner(f)
+	for s.Scan() {
+
 	}
 
 	if partOne {
