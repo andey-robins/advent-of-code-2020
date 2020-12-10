@@ -16,11 +16,14 @@ func check(e error) {
 func main() {
 	// select part one or two
 	partOne := true
+	filename := "./filename"
 	if len(os.Args) == 2 && os.Args[1] == "2" {
 		partOne = false
+	} else if len(os.Args) == 2 && os.Args[1] == "s" {
+		filename = "./filenamesmall"
 	}
 
-	f, err := os.Open("./filename")
+	f, err := os.Open(filename)
 	check(err)
 	defer func() {
 		err := f.Close()
